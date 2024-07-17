@@ -15,3 +15,38 @@ The Telecom Churn Rate Dataset provides comprehensive information on **customer 
 - tenure, PhoneService, MultipleLines, InternetService, OnlineSecurity, OnlineBackup, TechSupport: Service usage details.
 - Contract, PaperlessBilling, PaymentMethod, MonthlyCharges, TotalCharges: Payment and contract details.
 - Churn: Target variable indicating if the customer churned.
+
+# Key Questions for Analysis
+
+## Demographic Analysis
+- How does the distribution of customers vary by gender and senior citizen status?
+- What percentage of customers have partners or dependents?
+
+## Service Usage
+- What are the most and least used services among customers (PhoneService, MultipleLines, InternetService, etc.)?
+- How does the tenure of customers correlate with their service usage?
+
+## Payment and Contract Analysis
+- What payment methods are most commonly used by customers?
+- How do monthly charges and total charges vary across different contract types?
+- Is there a significant difference in churn rates based on payment methods?
+
+## Churn Prediction
+- What is the churn rate among the customers?
+- Which factors are most strongly associated with customer churn (e.g., monthly charges, tenure, contract type)?
+- Can we build a predictive model to identify customers at high risk of churning?
+
+## Ticket Analysis
+- How many administrative and technical tickets have been raised by customers?
+- Is there a correlation between the number of tickets and customer churn?
+
+## Service Quality and Satisfaction
+- How does the presence of online security, backup, and tech support services affect customer satisfaction and churn?
+
+# Results and Interpretations
+
+## Demographic Analysis:
+
+![image](https://github.com/user-attachments/assets/e8cf9f1f-16b7-4bfa-a7a0-8a8439cb304c)
+
+
