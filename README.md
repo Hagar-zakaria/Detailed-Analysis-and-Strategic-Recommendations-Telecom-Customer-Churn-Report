@@ -154,8 +154,7 @@ To optimize the model, hyperparameter tuning was conducted using GridSearchCV. T
 To further understand the model’s performance, a confusion matrix was visualized using Seaborn. The confusion matrix helps in identifying the number of correct and incorrect predictions for each class, providing a comprehensive view of the model’s classification capability.
 
 
-'''
-Python 
+''' 
 # Create a confusion matrix
 conf_matrix = confusion_matrix(y_test, y_pred)
 
