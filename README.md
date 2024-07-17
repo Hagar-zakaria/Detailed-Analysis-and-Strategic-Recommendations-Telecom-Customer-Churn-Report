@@ -1,6 +1,8 @@
 # Detailed-Analysis-and-Strategic-Recommendations-Telecom-Customer-Churn-Report
 This report dives into the Telecom Churn Rate Dataset, uncovering key insights on customer behavior, service usage, and payment preferences. It identifies primary churn drivers, such as monthly charges and contract types, and presents a predictive model with 86% accuracy. Practical recommendations help enhance customer retention and satisfaction.
 
+![image](https://github.com/user-attachments/assets/be675f19-872b-4f3f-90dc-102bc2d9bdbe)
+
 ### Welcome to the Analyst League Challenge
 In today’s fiercely competitive telecom industry, understanding customer behavior and predicting churn is essential for retaining customers and sustaining growth. This report delves deep into customer data from the Telecom Churn Rate Dataset, uncovering valuable insights and strategies for improving customer retention and satisfaction within the telecom sector.
 
