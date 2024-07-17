@@ -49,4 +49,121 @@ The Telecom Churn Rate Dataset provides comprehensive information on **customer 
 
 ![image](https://github.com/user-attachments/assets/e8cf9f1f-16b7-4bfa-a7a0-8a8439cb304c)
 
+- Gender and Senior Citizen Status: The distribution of customers by gender is nearly equal, with a slightly higher number of female customers. About 16% of customers are senior citizens.
+- Partners and Dependents: Approximately 49% of customers have partners, and 30% have dependents.
 
+# Service Usage:
+
+- Most and Least Used Services: Most customers use phone services, with around 90% having a phone service. Internet services are also widely used, with nearly 80% of customers having either DSL or Fiber optic connections. Services like online security and tech support are less utilized, with usage rates below 50%.
+
+- Tenure and Service Usage Correlation: Longer-tenured customers are more likely to subscribe to multiple services. Tenure positively correlates with the number of services used.
+
+# Payment and Contract Analysis:
+
+![image](https://github.com/user-attachments/assets/228b9933-fafd-4ec1-a2e6-aa415ecda92c)
+
+- Common Payment Methods: The most common payment methods are electronic checks and mailed checks. Credit cards and bank transfers are also popular.
+
+- Monthly and Total Charges by Contract Types: Customers on month-to-month contracts tend to have higher monthly charges. Total charges vary significantly based on contract length, with longer contracts generally leading 
+to higher total charges.
+
+- Churn Rates by Payment Methods: Electronic check users have the highest churn rates, while bank transfer and credit card payment methods are associated with lower churn rates.
+
+# Churn Prediction:
+
+![image](https://github.com/user-attachments/assets/d61ea8ba-aef9-406e-8bea-c2ebe3c34861)
+
+- Churn Rate: The overall churn rate is around 27%.
+
+- Factors Associated with Churn: Monthly charges, tenure, and contract type are strongly associated with churn. Higher monthly charges and shorter tenure increase churn likelihood. Month-to-month contracts have the highest churn rates.
+
+- Predictive Model: A Random Forest Classifier was trained, achieving an accuracy of 86%. The model’s confusion matrix helps in understanding the classification performance.
+
+  Here are the processes for the model development:
+
+# Predictive Model Development
+
+To predict customer churn effectively, I employed a robust machine learning approach using the Random Forest Classifier. This section provides a detailed walkthrough of the predictive model development, evaluation, and insights drawn from the analysis.
+
+## Data Preparation
+
+- Feature Selection: The dataset was divided into features (X) and the target variable (y). Features included demographic information, service usage, and payment details, while the target variable was ‘Churn’.
+
+- Handling Categorical and Numerical Data: Features were classified into categorical and numerical types. Numerical features included tenure, monthly charges, and total charges, while categorical features encompassed gender, senior citizen status, partner status, dependents, service subscriptions, contract type, payment method, and paperless billing.
+
+## Preprocessing Pipeline
+
+To prepare the data for the Random Forest Classifier, a preprocessing pipeline was designed:
+
+- Numerical Features: A StandardScaler was applied to normalize the numerical data, ensuring each feature had a mean of 0 and a standard deviation of 1.
+
+- Categorical Features: Categorical data was encoded using OneHotEncoder, which converted categorical variables into a format that could be provided to machine learning algorithms to do a better job in prediction.
+
+  ![image](https://github.com/user-attachments/assets/e1ea176a-e7ac-4ec4-b8c0-c7af24cdec56)
+
+# Model Training and Validation
+
+- Data Split: The dataset was split into training (80%) and testing (20%) sets using train_test_split. This ensured that the model was trained on one portion of the data and validated on another to evaluate its generalization capability.
+
+- Model Definition: The Random Forest Classifier, known for its robustness and accuracy, was selected as the predictive model. It consists of multiple decision trees and aggregates their predictions to enhance performance and reduce overfitting.
+
+- Pipeline Construction: A pipeline was constructed to streamline the preprocessing and model training steps.
+
+  ![image](https://github.com/user-attachments/assets/62176a4d-319c-4e44-90f4-ce93c7549bc8)
+
+# Hyperparameter Tuning
+
+To optimize the model, hyperparameter tuning was conducted using GridSearchCV. This method exhaustively searches over specified parameter values for the estimator to find the best combination:
+
+- n_estimators: Number of trees in the forest.
+- max_depth: Maximum depth of the tree.
+- min_samples_split: Minimum number of samples required to split an internal node.
+- min_samples_leaf: Minimum number of samples required to be at a leaf node.
+- bootstrap: Method for sampling data points (with or without replacement).
+
+## The best parameters identified were:
+
+- n_estimators: 300
+- max_depth: None
+- min_samples_split: 10
+- min_samples_leaf: 2
+- bootstrap: True
+- These parameters significantly improved the model’s performance.
+
+## These parameters significantly improved the model’s performance.
+
+# Model Evaluation
+
+- Prediction and Accuracy: The trained model was used to predict the churn status on the test set. The accuracy of the model was evaluated using accuracy_score.
+- Classification Report: A detailed classification report was generated to assess the precision, recall, f1-score, and support for each class (Churn/No Churn).
+
+  ![image](https://github.com/user-attachments/assets/025b38fe-39ce-49e4-9397-2a389dbfe87b)
+
+
+**Accuracy**: The model achieved an accuracy of 86%, indicating that it correctly predicted the churn status 86% of the time.
+
+**Classification Report**: The classification report provided the following metrics:
+
+- Precision: The ratio of true positive predictions to the total predicted positives. It indicates how many of the predicted churns were correct.
+- Recall: The ratio of true positive predictions to the total actual positives. It measures the ability of the model to capture actual churn cases.
+- F1-Score: The harmonic mean of precision and recall, providing a balance between the two.
+- Support: The number of actual occurrences of each class in the test set.
+
+# Confusion Matrix Visualization
+
+To further understand the model’s performance, a confusion matrix was visualized using Seaborn. The confusion matrix helps in identifying the number of correct and incorrect predictions for each class, providing a comprehensive view of the model’s classification capability.
+
+
+'''
+Python 
+# Create a confusion matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+
+# Visualize the confusion matrix using a heatmap
+plt.figure(figsize=(10, 7))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['No Churn', 'Churn'], yticklabels=['No Churn', 'Churn'])
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix')
+plt.show()
+'''
