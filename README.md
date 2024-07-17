@@ -1,0 +1,2 @@
+# Detailed-Analysis-and-Strategic-Recommendations-Telecom-Customer-Churn-Report
+This report dives into the Telecom Churn Rate Dataset, uncovering key insights on customer behavior, service usage, and payment preferences. It identifies primary churn drivers, such as monthly charges and contract types, and presents a predictive model with 86% accuracy. Practical recommendations help enhance customer retention and satisfaction.
